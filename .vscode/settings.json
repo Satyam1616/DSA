@@ -1,0 +1,14 @@
+{
+  "files.associations": {
+    "ostream": "cpp",
+    "iostream": "cpp",
+    "vector": "cpp",
+    "initializer_list": "cpp",
+    "xutility": "cpp",
+    "format": "cpp",
+    "xiosbase": "cpp",
+    "xstring": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "enabled",
+  "CodeGPT.apiKey": "CodeGPT Plus Beta"
+}
