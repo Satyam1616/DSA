@@ -3,20 +3,24 @@
 using namespace std;
 int main(){
 
-  vector<int> vec1 = {1,2,3,4,5};
-  vector<int> vec2 = {vec1};
+  vector<int> vec = {1,2,3,4,5};
 
 
+  // vec.erase(vec.begin()+1, vec.begin()+3);
 
   //vector<int> vec(10, -1); // dynamic programming - tabulation DP[][]
 
-  
-
-  for(int val: vec2) {
+  // vec.insert(vec.begin()+2, 100);
+  vec.clear();
+  for(int val: vec) {
     cout << val <<" ";
   }
 
   cout <<  endl;
+
+  // cout<<"size: "<< vec.size() << endl;
+  // cout << "cap: " << vec.capacity() << endl;
+  cout << "is empty: " << vec.empty() << endl;
 
    
   
