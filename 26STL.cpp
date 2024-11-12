@@ -2,25 +2,23 @@
 #include <vector>
 using namespace std;
 int main(){
-  vector<int> vec; // 0
-  vec.push_back(1);
-  vec.push_back(2);
-  vec.push_back(3);
-  vec.push_back(4);
-  vec.push_back(5);
-  vec.pop_back();
 
-  vec.emplace_back(6);
+  vector<int> vec1 = {1,2,3,4,5};
+  vector<int> vec2 = {vec1};
 
-  for(int val: vec) {
+
+
+  //vector<int> vec(10, -1); // dynamic programming - tabulation DP[][]
+
+  
+
+  for(int val: vec2) {
     cout << val <<" ";
   }
 
   cout <<  endl;
 
-  cout <<"front" << vec.front()<< endl;   
-  
-  cout <<"back" << vec.back()<< endl;   
+   
   
   return 0;
 }
