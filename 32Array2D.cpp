@@ -129,44 +129,43 @@
 // }
 
 
-
 #include <iostream>
-#include <conio.h>
 #include <vector>
 using namespace std;
 
-int diagonalSum(int mat[][4], int n){
-  int sum = 0;
+int diagonalSum(int mat[][4], int n) {
+    int sum = 0;
 
-  //pd : i=j
-  //sd : j = n-i-1;
-  for(int i = 0; i<n; i++){
-      sum += mat[i][i];
-
-      if(i != n-i-1){
-        sum += mat[i][n-i-1];
-      }
+    // pd: i=j
+    // sd: j = n-i-1
+    for (int i = 0; i < n; i++) {
+        sum += mat[i][i];  // Primary diagonal
+        if (i != n - i - 1) {
+            sum += mat[i][n - i - 1];  // Secondary diagonal
+        }
     }
-  
-  return sum;
+
+    return sum;
 }
 
-int main(){
-  // int matrix[4][4]= {{1,2,3,4},{5,6,7,8},{9,10,11,12}, {13,14,15,16}};
-  // int n=4;
+int main() {
+    // Fixed-size array for diagonalSum
+    int matrix[4][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
+    int n = 4;
 
-  // cout << diagonalSum(matrix, n) << endl;
+    cout << "Diagonal Sum (Fixed-Size Array): " << diagonalSum(matrix, n) << endl;
 
+    // Vector for flexible handling
+    vector<vector<int>> mat = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};  // 3x3
 
-  vector<vector<int>> mat = {{1,2,3},{4,5,6},{7,8,9}};
-
-  for(int i =0; i< 3; i++){
-    for(int j=0; j<3;j++){
-      cout << mat[i][j] << endl;
-      
+    // Output matrix elements
+    cout << "Matrix Elements (Vector):" << endl;
+    for (int i = 0; i < mat.size(); i++) {
+        for (int j = 0; j < mat[i].size(); j++) {
+            cout << mat[i][j] << " ";
+        }
+        cout << endl;
     }
-  }
 
-  return 0;
-
+    return 0;
 }
