@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frameset Example</title>
+</head>
+<body>
+    <!-- A fallback message for browsers that don't support frames -->
+    <noframes>
+        Your browser does not support frames. Please upgrade to a modern browser.
+    </noframes>
+
+    <!-- Define a frameset -->
+    <frameset rows="20%,*">
+        <!-- Header frame -->
+        <frame src="header.html" name="headerFrame" scrolling="no" noresize>
+        
+        <!-- Main content frame with sidebar and main area -->
+        <frameset cols="30%,*">
+            <!-- Sidebar frame -->
+            <frame src="sidebar.html" name="sidebarFrame">
+            
+            <!-- Main content frame -->
+            <frame src="main.html" name="mainFrame">
+        </frameset>
+    </frameset>
+</body>
+</html>
