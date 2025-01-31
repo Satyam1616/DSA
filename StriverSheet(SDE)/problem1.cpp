@@ -120,75 +120,66 @@
 
 //Optimised approach
 
-
 #include <iostream>
 #include <vector>
 using namespace std;
 
-vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
-
-    // int row[n] = {0}; --> matrix[..][0]
-    // int col[m] = {0}; --> matrix[0][..]
-
+void zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
     int col0 = 1;
-    // step 1: Traverse the matrix and
-    // mark 1st row & col accordingly:
+
+    // Step 1: Mark the first row and column
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             if (matrix[i][j] == 0) {
-                // mark i-th row:
-                matrix[i][0] = 0;
-
-                // mark j-th column:
+                matrix[i][0] = 0; // Mark row
                 if (j != 0)
-                    matrix[0][j] = 0;
+                    matrix[0][j] = 0; // Mark column
                 else
-                    col0 = 0;
+                    col0 = 0; // Track if first column should be zeroed
             }
         }
     }
 
-    // Step 2: Mark with 0 from (1,1) to (n-1, m-1):
+    // Step 2: Mark other cells based on the first row/column
     for (int i = 1; i < n; i++) {
         for (int j = 1; j < m; j++) {
-            if (matrix[i][j] != 0) {
-                // check for col & row:
-                if (matrix[i][0] == 0 || matrix[0][j] == 0) {
-                    matrix[i][j] = 0;
-                }
+            if (matrix[i][0] == 0 || matrix[0][j] == 0) {
+                matrix[i][j] = 0;
             }
         }
     }
 
-    //step 3: Finally mark the 1st col & then 1st row:
+    // Step 3: Set first row to zero if needed
     if (matrix[0][0] == 0) {
         for (int j = 0; j < m; j++) {
             matrix[0][j] = 0;
         }
     }
+
+    // Step 4: Set first column to zero if needed
     if (col0 == 0) {
         for (int i = 0; i < n; i++) {
             matrix[i][0] = 0;
         }
     }
-
-    return matrix;
 }
 
-int main()
-{
+int main() {
     vector<vector<int>> matrix = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
     int n = matrix.size();
     int m = matrix[0].size();
-    vector<vector<int>> ans = zeroMatrix(matrix, n, m);
+    
+    zeroMatrix(matrix, n, m); // Modified matrix in place
 
-    cout << "The Final matrix is: n";
-    for (auto it : ans) {
+    cout << "The Final matrix is:\n"; // Fixed newline issue
+    for (auto it : matrix) {
         for (auto ele : it) {
             cout << ele << " ";
         }
-        cout << "n";
+        cout << "\n"; // Fixed newline issue
     }
+
     return 0;
 }
+
 
